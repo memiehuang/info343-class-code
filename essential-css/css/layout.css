@@ -17,4 +17,6 @@ body {
     font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 18px;
 }
-
+svg {
+    height: 1em;
+}
