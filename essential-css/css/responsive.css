@@ -1,5 +1,5 @@
 header {
-    background-image: url(../img/pencil-background.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.0)), url(../img/pencil-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 600px;
@@ -7,11 +7,38 @@ header {
 }
 
 header h1 {
-    font-size: 500%;
+    font-size: 500%; 
     font-weight: 300;
 }
 
 header p {
     font-size: 200%;
     font-weight: 300;
+}
+
+.bunny img {
+    float: left;
+    max-height: 200px;
+    margin-right: 1em;
+}
+
+.bunny aside{
+    font-size: 200%;
+    font-weight: 100;
+}
+.bunny p{
+    clear: both;
+}
+
+footer {
+    clear: both;
+}
+
+@media (min-width: 768px){ /*If the screen size is at least 768 pixels, these rules will be follow*/
+    header{
+        background-image: linear-gradient(rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.0)), url(../img/pencil-background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 600px;
+    }
 }
