@@ -15,3 +15,17 @@ body {
     /*hide spinner*/
     display: none;
 }
+
+/*make cursor a hand when it hovers over task list*/
+#tasks-list li {
+    cursor: pointer;
+}
+
+.completed-task {
+    color: #AAA;
+    text-decoration: line-through;
+}
+
+#rating {
+    color: #ffd700
+}
