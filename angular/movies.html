@@ -12,6 +12,8 @@
         <!-- angular script file -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
+        <!-- lodash script-->
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
         <!-- our script file -->
         <script src="js/movies.js"></script>
 
@@ -24,6 +26,11 @@
                    placeholder = "type to filter" ng-model="query"/>
         </p>
 
+        <p>
+            
+            <select ng-model = "currentDistributor" ng-options = "d as d for d in distributors">
+            </select>
+        </p>
         <!--Do not use for layout-->
         <!--(But do use for tabular data)-->
         <table class = "table">
@@ -31,18 +38,18 @@
             <thead>
                 <!--table row-->
                 <tr>
-                    <th>Title</th>
-                    <th>Rating</th>
-                    <th>Released</th>
-                    <th>Gross Sales</th>
+                    <th><a ng-click = "setSort('title')" href = "#">Title</a></th>
+                    <th><a ng-click = "setSort('ratingOrdinal')" href = '#'>Rating</a></th>
+                    <th><a ng-click = "setSort('released')" href = '#'>Released</a></th>
+                    <th><a ng-click = "setSort('gross')" href = '#'>Gross Sales</a></th>
                 </tr>
             </thead>
             <tbody>
                 <!--Matches only on title rather than every property of the object-->
-                <tr ng-repeat="movie in movies | filter: {title : query}">
+                <tr ng-repeat="movie in movies | filter: {title : query} | filter : {distributor : currentDistributor} | orderBy : sortCol : sortReverse">
                     <td>{{movie.title}}</td>
                     <td>{{movie.rating}}</td>
-                    <td>{{movie.released | date : 'MMM d'}}</td>
+                    <td>{{movie.released | date : 'MMM d yyyy'}}</td>
                     <!--Use pipe syntax "filter" for formatting -->
                     <td>{{movie.gross | currency}}</td>
                 </tr>
