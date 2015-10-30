@@ -12,48 +12,17 @@
         <!-- angular script file -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
+        <!-- angular ui routing module-->
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
         <!-- lodash script-->
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
         <!-- our script file -->
         <script src="js/movies.js"></script>
 
     </head>
-    <body class = "container" ng-app="Movies" ng-controller="MoviesController">
-        <h1>Movies from 2014</h1>
-
-        <p>
-            <input type="search" class = "form-control"
-                   placeholder = "type to filter" ng-model="query"/>
-        </p>
-
-        <p>
-            
-            <select ng-model = "currentDistributor" ng-options = "d as d for d in distributors">
-            </select>
-        </p>
-        <!--Do not use for layout-->
-        <!--(But do use for tabular data)-->
-        <table class = "table">
-            <!--column headers-->
-            <thead>
-                <!--table row-->
-                <tr>
-                    <th><a ng-click = "setSort('title')" href = "#">Title</a></th>
-                    <th><a ng-click = "setSort('ratingOrdinal')" href = '#'>Rating</a></th>
-                    <th><a ng-click = "setSort('released')" href = '#'>Released</a></th>
-                    <th><a ng-click = "setSort('gross')" href = '#'>Gross Sales</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--Matches only on title rather than every property of the object-->
-                <tr ng-repeat="movie in movies | filter: {title : query} | filter : {distributor : currentDistributor} | orderBy : sortCol : sortReverse">
-                    <td>{{movie.title}}</td>
-                    <td>{{movie.rating}}</td>
-                    <td>{{movie.released | date : 'MMM d yyyy'}}</td>
-                    <!--Use pipe syntax "filter" for formatting -->
-                    <td>{{movie.gross | currency}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <body class = "container" ng-app="Movies">
+        <div ui-view></div>
     </body>
 </html>
