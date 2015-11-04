@@ -12,6 +12,7 @@ body {
 }
 
 .fa-spin {
+<<<<<<< HEAD
     /*hide spinner*/
     display: none;
 }
@@ -29,3 +30,7 @@ body {
 #rating {
     color: #ffd700
 }
+=======
+    display: none;
+}
+>>>>>>> 0e1f3c03a332ce37c172bdee43ad742a11ba4994
