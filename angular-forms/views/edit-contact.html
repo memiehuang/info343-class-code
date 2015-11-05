@@ -1,2 +1,38 @@
 <h1>Edit {{contact.fname}} {{contact.lname}}</h1>
 
+<form name = "contactForm" novalidate ng-submit="save()">
+    <div class="form-group">
+        <label for="fnameImp">First Name:</label>
+        <!--need name for validation-->
+        <input type="text" class = "form-control" id = "fnameImp"
+                name = "fnameImp" ng-model = "contact.fname"/>
+    </div>
+    <div class="form-group">
+        <label for="lnameImp">Last Name:</label>
+        <input type="text" class = "form-control" id = "lnameImp"
+               name = "lnameImp" ng-model = "contact.lname" required/>
+        <!--ng-if shows element if the statement is true-->
+        <p class = "validation-error"
+           ng-if="contactForm.lnameImp.$error.required">Last Name is Required</p>
+    </div>
+    <div class="form-group">
+        <label for="phoneImp">Phone Number:</label>
+        <input type="text" class = "form-control" id = "phoneImp"
+               name = "phoneImp" ng-model = "contact.phone"
+               pattern = "\d{3}-\d{3}-\{4}"/>
+        <!--pattern has regular expression to make sure it it a phone number-->
+        <!-- /d means digit-->
+        <p class = "validation-error"
+           ng-if="contactForm.phoneImp.$error.pattern">Phone must be xxx-xxx-xxxx</p>
+    </div>
+    <div class="form-group">
+        <label for="dobImp">Birthdate:</label>
+        <input type="text" class = "form-control" id = "dobImp"
+               name = "dobImp" ng-model = "contact.dob"/>
+    </div>
+    <div class="form-group">
+        <a class = "btn btn-default" ui-sref="list">Cancel</a>
+        <!--Save button is disabled if the contact form is invalid in any way-->
+        <button type = "submit" class = "btn btn-primary" ng-disabled="contactForm.$invalid">Save</button>
+    </div>
+</form>

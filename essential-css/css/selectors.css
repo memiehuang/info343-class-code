@@ -14,6 +14,7 @@
     - margins and padding
     - borders
 */
+<<<<<<< HEAD
 
 body{
     font-family: Lato, Helvetica , sans-serif;
@@ -25,10 +26,23 @@ h1, h2{
 }
 
 .subtitle{
+=======
+body {
+    font-family: Lato, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+h1, h2 {
+    font-weight: 300;
+}
+
+.subtitle {
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
     font-size: 200%;
     font-weight: 300;
 }
 
+<<<<<<< HEAD
 .term{
     font-style: italic;
 }
@@ -59,14 +73,53 @@ footer a:hover{
 }
 
 header{
+=======
+.term {
+    font-style: italic;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: #FFF;
+    padding: 1em;
+    border-top-width: 5px;
+    border-top-color: #F00;
+    border-top-style: solid;
+}
+
+header {
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
     background-color: #CCC;
     padding-left: 1em;
     padding-right: 1em;
 }
 
+<<<<<<< HEAD
 header h1{
     margin-top: 0;
 }
 
 
 
+=======
+header h1 {
+    margin-top: 0;
+}
+
+footer a {
+    color: #DDF;
+}
+
+footer a:hover {
+    color: #AAD;
+}
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea

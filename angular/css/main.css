@@ -5,14 +5,27 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .completed-task{
+=======
+.completed-task {
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
     color: #AAA;
     text-decoration: line-through;
 }
 
+<<<<<<< HEAD
 ul li{
 =======
 .back-to-list {
     margin-top: 1.5em;
 >>>>>>> 0c8149beb4cd5e792f58e96c863714742dec592a
+=======
+ul li {
+    cursor: pointer;
+=======
+.back-to-list {
+    margin-top: 1.5em;
+>>>>>>> 0e1f3c03a332ce37c172bdee43ad742a11ba4994
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
 }
