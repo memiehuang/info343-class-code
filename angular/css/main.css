@@ -4,10 +4,15 @@ body {
     font-size: 18px;
 }
 
+<<<<<<< HEAD
 .completed-task{
     color: #AAA;
     text-decoration: line-through;
 }
 
 ul li{
+=======
+.back-to-list {
+    margin-top: 1.5em;
+>>>>>>> 0c8149beb4cd5e792f58e96c863714742dec592a
 }
