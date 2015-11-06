@@ -5,13 +5,7 @@
 angular.module('ContactsApp', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .constant('storageKey', 'contacts-list')
     .factory('contacts', function(uuid, localStorageService, storageKey) {
-        return [{
-            id: 'default-delete-me',
-            fname: 'Will',
-            lname: 'Burd',
-            phone: '206-555-1212',
-            dob: '1/9/1993'
-        }];
+        return localStorageService.get(storageKey) || [];
     })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -35,11 +29,26 @@ angular.module('ContactsApp', ['ui.router', 'angular-uuid', 'LocalStorageModule'
         //redirect to this url if some other weird url gets typed in instead
         $urlRouterProvider.otherwise('/contacts');
     })
+
+    //register a directive for custom validation of dates in the past
+    .directive('inThePast', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, elem, attrs, controller){
+                controller.$validators.inThePast = function(modelValue){
+                    var today = new Date();
+                    return (new Date(modelValue) <= today);
+                }
+            }
+        };
+    })
+
+    //declare
     //contacts parameter is equal to the result of the factory function
     .controller('ContactsController', function($scope, contacts) {
         $scope.contacts = contacts;
     })
-    .controller('ContactDetailController', function($scope, $stateParams, $state, contacts) {
+    .controller('ContactDetailController', function($scope, $stateParams, $state,  contacts) {
         //find is called on every element in the array, takes as that parameter that element of the array
         $scope.contact = contacts.find(function(contact) {
             //state params matches the url
@@ -48,7 +57,7 @@ angular.module('ContactsApp', ['ui.router', 'angular-uuid', 'LocalStorageModule'
             return contact.id === $stateParams.id;
         })
     })
-    .controller('EditContactController', function($scope, $stateParams, $state, contacts) {
+    .controller('EditContactController', function($scope, $stateParams, $state, uuid, localStorageService, storageKey, contacts) {
         //make a copy, edit the copy, push the copy back on to te original on save
         var existingContact = contacts.find(function(contact) {
             return contact.id === $stateParams.id;
@@ -56,9 +65,18 @@ angular.module('ContactsApp', ['ui.router', 'angular-uuid', 'LocalStorageModule'
 
         $scope.contact = angular.copy(existingContact);
 
-        $scope.save = function() {
+        $scope.saveContact = function() {
+            if($scope.contact.id){
+                angular.copy($scope.contact, existingContact);
+            } else{
+                $scope.contact.id = uuid.v4();
+                contacts.push($scope.contact);
+            }
+
+            localStorageService.set(storageKey,contacts);
+
             //first argument is the source, second argument is the destination
-            angular.copy($scope.contact, existingContact)
+            angular.copy($scope.contact, existingContact);
             //pass in a state name to go to
             $state.go('list');
         };
