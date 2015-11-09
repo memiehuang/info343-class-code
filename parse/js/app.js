@@ -26,7 +26,7 @@ $(function(){
     var tasks = [];
 
     function displayError(err){
-        errorMessage.text(err.meesage); //put message in
+        errorMessage.text(err.message); //put message in
         errorMessage.fadeIn(); //fade in when avaialble
     }
 
