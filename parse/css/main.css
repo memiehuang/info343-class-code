@@ -11,6 +11,7 @@ body {
     display: none;
 }
 
+<<<<<<< HEAD
 .fa-spin{
     display: none;
 }
@@ -26,3 +27,8 @@ body {
 #rating{
     color: gold;
 }
+=======
+.fa-spin {
+    display: none;
+}
+>>>>>>> 0c8149beb4cd5e792f58e96c863714742dec592a
