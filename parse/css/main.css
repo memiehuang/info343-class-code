@@ -29,6 +29,33 @@ body {
 }
 =======
 .fa-spin {
+<<<<<<< HEAD
+    /*hide spinner*/
     display: none;
 }
+<<<<<<< HEAD
 >>>>>>> 0c8149beb4cd5e792f58e96c863714742dec592a
+=======
+<<<<<<< HEAD
+>>>>>>> 0c8149beb4cd5e792f58e96c863714742dec592a
+=======
+
+/*make cursor a hand when it hovers over task list*/
+#tasks-list li {
+    cursor: pointer;
+}
+
+.completed-task {
+    color: #AAA;
+    text-decoration: line-through;
+}
+
+#rating {
+    color: #ffd700
+}
+=======
+    display: none;
+}
+>>>>>>> 0e1f3c03a332ce37c172bdee43ad742a11ba4994
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
+>>>>>>> 279c16882cc8b7fdff3f25bb28008df9229a362a

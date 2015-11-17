@@ -1,5 +1,41 @@
 <h1>Movies from 2014</h1>
 
+<<<<<<< HEAD
+<p>
+    <input type="search" class = "form-control"
+           placeholder = "type to filter" ng-model="query"/>
+</p>
+
+<p>
+
+    <select ng-model = "currentDistributor" ng-options = "d as d for d in distributors">
+    </select>
+</p>
+<!--Do not use for layout-->
+<!--(But do use for tabular data)-->
+<table class = "table">
+    <!--column headers-->
+    <thead>
+    <!--table row-->
+    <tr>
+        <th><a ng-click = "setSort('title')" href = "#">Title</a></th>
+        <th><a ng-click = "setSort('ratingOrdinal')" href = '#'>Rating</a></th>
+        <th><a ng-click = "setSort('released')" href = '#'>Released</a></th>
+        <th><a ng-click = "setSort('gross')" href = '#'>Gross Sales</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--Matches only on title rather than every property of the object-->
+    <tr ng-repeat="movie in movies | filter: {title : query} | filter : {distributor : currentDistributor} | orderBy : sortCol : sortReverse">
+        <td><a ng-href='#/movies/{{$index}}'>{{movie.title}}</a></td>
+        <td>{{movie.rating}}</td>
+        <td>{{movie.released | date : 'MMM d yyyy'}}</td>
+        <!--Use pipe syntax "filter" for formatting -->
+        <td>{{movie.gross | currency}}</td>
+    </tr>
+    </tbody>
+</table>
+=======
 <div class="form-group">
     <label for="titleSearch">Title:</label>
     <input type="search" id="titleSearch" class="form-control" placeholder="type to filter by title"
@@ -35,3 +71,4 @@
     </tbody>
 
 </table>
+>>>>>>> 0e1f3c03a332ce37c172bdee43ad742a11ba4994

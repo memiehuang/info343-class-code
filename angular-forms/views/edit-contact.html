@@ -1,5 +1,6 @@
 <h1>Edit {{contact.fname}} {{contact.lname}}</h1>
 
+<<<<<<< HEAD
 <form class="edit-contact" name="contactForm" novalidate ng-submit="saveContact()">
     <div class="form-group">
         <label for="fnameInp">First Name:</label>
@@ -34,10 +35,44 @@
                placeholder="date of birth" in-the-past />
         <p class="validation-error" ng-if="contactForm.dobInp.$error.inThePast">
             Date of birth must be in the past
+=======
+<form name = "contactForm" novalidate ng-submit="saveContact()">
+    <div class="form-group">
+        <label for="fnameImp">First Name:</label>
+        <!--need name for validation-->
+        <input type="text" class = "form-control" id = "fnameImp"
+                name = "fnameImp" ng-model = "contact.fname"/>
+    </div>
+    <div class="form-group">
+        <label for="lnameImp">Last Name:</label>
+        <input type="text" class = "form-control" id = "lnameImp"
+               name = "lnameImp" ng-model = "contact.lname" required/>
+        <!--ng-if shows element if the statement is true-->
+        <p class = "validation-error"
+           ng-if="contactForm.lnameImp.$error.required">Last Name is Required</p>
+    </div>
+    <div class="form-group">
+        <label for="phoneImp">Phone Number:</label>
+        <input type="text" class = "form-control" id = "phoneImp"
+               name = "phoneImp" ng-model = "contact.phone"
+               pattern = "\d{3}-\d{3}-\{4}"/>
+        <!--pattern has regular expression to make sure it it a phone number-->
+        <!-- /d means digit-->
+        <p class = "validation-error"
+           ng-if="contactForm.phoneImp.$error.pattern">Phone must be xxx-xxx-xxxx</p>
+    </div>
+    <div class="form-group">
+        <label for="dobImp">Birthdate:</label>
+        <input type="text" class = "form-control" id = "dobImp"
+               name = "dobImp" ng-model = "contact.dob" in-the-past />
+        <p class="validation-error" ng-if="contactForm.dobInp.$error.inThePast">
+            Data of birth must be in the past
+>>>>>>> 279c16882cc8b7fdff3f25bb28008df9229a362a
         </p>
     </div>
 
     <div class="form-group">
+<<<<<<< HEAD
         <label for="shoeInp">Shoe Size:</label>
         <input type="number" class="form-control" id="shoeInp" name="shoeInp" ng-model="contact.shoeSize"
                required min="4" max="17" step="0.5"/>
@@ -55,5 +90,29 @@
     <div class="form-group">
         <a type="button" class="btn btn-default" ui-sref="list">Cancel</a>
         <button type="submit" class="btn btn-primary" ng-disabled="contactForm.$invalid">Save</button>
+=======
+        <label for="showInp"> Shoe Size:</label>
+        <input type="number" class="form-control" id="showInp" ng-model="contact.showSize"
+                required min="4" max="17" step="0.5"/>
+
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.min">
+            Shoe size must be at least 4
+        </p>
+
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.max">
+            Shoe size must be less than 17
+        </p>
+
+        <p class="validation-error" ng-if="contactForm.shoeInp.$error.required">
+            Shoe size required
+        </p>
+
+    </div>
+
+    <div class="form-group">
+        <a class = "btn btn-default" ui-sref="list">Cancel</a>
+        <!--Save button is disabled if the contact form is invalid in any way-->
+        <button type = "submit" class = "btn btn-primary" ng-disabled="contactForm.$invalid">Save</button>
+>>>>>>> 279c16882cc8b7fdff3f25bb28008df9229a362a
     </div>
 </form>

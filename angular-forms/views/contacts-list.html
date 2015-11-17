@@ -1,5 +1,5 @@
 <p class="pull-right">
-    <a class="btn btn-default">+</a>
+    <a class="btn btn-default" ui-sref="edit{{id: 'new'}}">+</a>
 </p>
 <h1>Contacts</h1>
 
@@ -15,10 +15,21 @@
     </tr>
     </thead>
     <tbody>
+<<<<<<< HEAD
     <tr ng-repeat="contact in contacts | filter : query | orderBy : ['lname', 'fname']">
         <td><a ui-sref="detail({id: contact.id})">{{contact.fname}} <strong>{{contact.lname}}</strong></a></td>
         <td><a ng-href="tel:{{contact.phone}}">{{contact.phone}}</a></td>
     </tr>
+=======
+        <tr ng-repeat="contact in contacts | filter : query | orderBy : ['lname', 'fname']">
+            <td>
+                <a ui-sref = "detail({id: contact.id})">
+                {{contact.fname}} <strong>{{contact.lname}}</strong>
+                </a>
+            </td>
+            <td><a ng-href="tel:{{contact.phone}}">{{contact.phone}}</a></td>
+        </tr>
+>>>>>>> 279c16882cc8b7fdff3f25bb28008df9229a362a
     </tbody>
     <tfoot>
     <tr>

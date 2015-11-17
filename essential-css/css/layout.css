@@ -23,7 +23,10 @@ svg {
     height: 1em;
     fill: #FFF;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
 nav {
     background-color: rgba(0,0,0,0.8);
     color: #FFF;
@@ -41,6 +44,7 @@ nav li {
     padding-bottom: 0.5em;
 }
 
+<<<<<<< HEAD
 nav a{
     color: #FFF;
     text-decoration: none;
@@ -50,4 +54,15 @@ nav ul{
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
+=======
+nav ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+nav a {
+    color: #FFF;
+    text-decoration: none;
+>>>>>>> 8618b52f1f130b0f8450375e3847289e36947cea
 }
