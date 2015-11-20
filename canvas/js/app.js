@@ -142,4 +142,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //ask browser to animate as quickly as possible
     requestAnimationFrame(animate);
+
 });
